@@ -2,7 +2,7 @@ import telebot
 from telebot import types
 from editors import edits
 
-with open('insert_token.txt') as f:
+with open('insert_token.txt') as f: # создайте файл .txt в директории и в него запишите токен
     token = f.read()
 bot = telebot.TeleBot(token)
 typesofedit = {'grayscale': edits.grayscale,
