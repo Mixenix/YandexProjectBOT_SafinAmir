@@ -22,6 +22,7 @@ pilfilters = (
     'valencia', 'walden', 'willow', 'xpro2')
 jobtype = ('Редактор картинок', 'Редактор аудио')
 
+
 def generate_buttons(bts_names, markup):
     for button in bts_names:
         markup.add(types.KeyboardButton(button))
@@ -48,7 +49,7 @@ def yes_no_checker(message, img):
 def pilg_filters(message, img=None):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
     markup = generate_buttons(pilfilters, markup)
-    bot.send_message(message.chat.id, "Выбери тип фильтра", reply_markup=markup)
+    bot.send_message(message.chat.id, "Выбери тип фильтра.", reply_markup=markup)
     if img is None:
         bot.register_next_step_handler(message, next_step_photo1)
     else:
@@ -61,6 +62,7 @@ def start_pic(message):
     markup = generate_buttons(typesofedit.keys(), markup)
     bot.send_message(message.chat.id, "Привет, выбери тип фильтра для своего изображения", reply_markup=markup)
     bot.register_next_step_handler(message, next_step_photo1)
+
 
 def next_step_photo1(message, img=None):
     if img is None:
@@ -126,7 +128,7 @@ def next_step_photo2(message, edittype, img=None):
                 bot.send_message(chatId, 'Хотите продолжить редактирование?', reply_markup=markup)
                 bot.register_next_step_handler(message, yes_no_checker, img)
             except IndexError:
-                bot.send_message(chatId, 'Формат не поддерживается')
+                bot.send_message(chatId, 'Формат не поддерживается.')
                 bot.register_next_step_handler(message, next_step_photo2, edittype)
         elif message.content_type == 'text':
             if message.text == 'reset':

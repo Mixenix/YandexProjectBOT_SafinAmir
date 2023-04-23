@@ -4,7 +4,7 @@ import pilgram
 
 
 def pilgram_filters(imgBytes, filttype):
-    if type(imgBytes) == type(bytes()):
+    if isinstance(imgBytes, bytes):
         stream = io.BytesIO(imgBytes)
         img = Image.open(stream)
     else:
@@ -12,8 +12,9 @@ def pilgram_filters(imgBytes, filttype):
     imgres = eval(f'pilgram.{filttype}')(img)
     return imgres
 
+
 def grayscale(imgBytes):
-    if type(imgBytes) == type(bytes()):
+    if isinstance(imgBytes, bytes):
         stream = io.BytesIO(imgBytes)
         img = Image.open(stream)
     else:
@@ -22,7 +23,7 @@ def grayscale(imgBytes):
 
 
 def filter(imgBytes, filttype):
-    if type(imgBytes) == type(bytes()):
+    if isinstance(imgBytes, bytes):
         stream = io.BytesIO(imgBytes)
         img = Image.open(stream)
     else:
