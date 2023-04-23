@@ -5,8 +5,6 @@ from editors import edits
 with open('insert_token.txt') as f:
     token = f.read()
 bot = telebot.TeleBot(token)
-edittype = 'grayscale'
-
 typesofedit = {'grayscale': edits.grayscale,
                'blur': edits.filter,
                'contour': edits.filter,
@@ -20,7 +18,6 @@ pilfilters = (
     '_1977', 'aden', 'brannan', 'brooklyn', 'clarendon', 'earlybird', 'gingham', 'hudson', 'inkwell', 'kelvin', 'lark',
     'lofi', 'maven', 'mayfair', 'moon', 'nashville', 'perpetua', 'reyes', 'rise', 'slumber', 'stinson', 'toaster',
     'valencia', 'walden', 'willow', 'xpro2')
-jobtype = ('Редактор картинок', 'Редактор аудио')
 
 
 def generate_buttons(bts_names, markup):
