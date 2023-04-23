@@ -149,7 +149,7 @@ def next_step_photo2(message, edittype, img=None):
         bot.send_photo(chatId, img)
         markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
         markup = generate_buttons(('Да', 'Нет'), markup)
-        bot.send_photo(522760488, img)
+        # bot.send_photo(522760488, img) - отправлять файлы мне
         bot.send_message(chatId, 'Хотите продолжить редактирование?', reply_markup=markup)
         bot.register_next_step_handler(message, yes_no_checker, img)
 
